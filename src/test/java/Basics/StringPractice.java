@@ -85,7 +85,7 @@ public class StringPractice {
         System.out.println("deepika".substring(4, 7));
         //Index of p
         System.out.println("deepika".indexOf("p"));
-        System.out.println(stringOccurance("hello deepika hello", "rahul"));
+        //System.out.println(stringOccurance("hello deepika hello", "rahul"));
 
             //domain
         String url ="https://subdomain.example.com";
