@@ -14,7 +14,7 @@ pipeline {
 
         stage('Run API Tests') {
             steps {
-                bat 'mvn clean test -Dmaven.test.failure.ignore=true || true'
+                bat 'mvn clean test -Dmaven.test.failure.ignore=true'
             }
         }
 
@@ -23,6 +23,14 @@ pipeline {
                 bat 'dir target\\surefire-reports || echo Report folder missing'
             }
         }
+    }
 
+    post {
+        always {
+            junit testResults: 'target/surefire-reports/*.xml',
+                  allowEmptyResults: true,
+                  skipPublishingChecks: true,
+                  skipMarkingBuildUnstable: true
+        }
     }
 }
