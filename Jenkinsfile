@@ -2,25 +2,25 @@ pipeline {
     agent any
 
     tools {
-        maven 'M398'
+        maven 'M398' // Ensure this Maven installation is configured in Jenkins
     }
 
     stages {
         stage('Checkout') {
             steps {
-               git url: 'https://github.com/Deepika5reddy/Java-RestAssured.git', branch: 'main'
+                git url: 'https://github.com/Deepika5reddy/Java-RestAssured.git', branch: 'main'
             }
         }
 
-        stage('Run API ests') {
+        stage('Run API Tests') {
             steps {
-                sh 'mvn clean test'
+                bat 'mvn clean test'
             }
         }
 
         stage('List Report Files') {
             steps {
-                sh 'ls -la target/surefire-reports || echo "Report folder missing"'
+                bat 'dir target\\surefire-reports || echo Report folder missing'
             }
         }
 
