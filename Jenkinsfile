@@ -26,7 +26,7 @@ pipeline {
 
         stage('Archive Reports') {
             steps {
-                junit testResults: 'target/surefire-reports/*.xml', skipPublishingChecks: true, skipMarkingBuildUnstable: true, allowEmptyResults: true
+                junit testResults: 'target/surefire-reports/*.xml', skipPublishingChecks: true
             }
         }
     }
