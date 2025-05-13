@@ -1,4 +1,4 @@
-Java-RestAssured API Testing Framework
+Java-RestAssured API Testing Framework.
 
 This repository contains a REST API test automation framework built using Java, RestAssured, and TestNG. It includes automated test cases for various HTTP operations and is structured for easy maintenance, scalability, and CI/CD integration.
 
