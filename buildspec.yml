@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+  build:
+    commands:
+      - echo "Running RestAssured API tests..."
+      - mvn clean test
+  post_build:
+    commands:
+      - echo "Uploading test reports to S3..."
+      - aws s3 cp target/surefire-reports/ s3://your-s3-bucket-name/surefire-reports/ --recursive
+
+artifacts:
+  files:
+    - target/surefire-reports/*
+    - target/*.xml
+  discard-paths: yes
